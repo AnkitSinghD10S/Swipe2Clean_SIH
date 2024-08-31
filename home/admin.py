@@ -1,17 +1,17 @@
 from django.contrib import admin
-from . models import Note
+from . models import Feedback
 from django.utils.html import format_html
-from .models import UploadImage
+from .models import Complain
 # from . models import BusinessPage
 admin.site.site_header = "Swipe2Clean Admin's"
-# admin.site.register(Note)
+# admin.site.register(Feedback)
 
-@admin.register(Note)
-class NoteAdmin(admin.ModelAdmin):
+@admin.register(Feedback)
+class FeedbackAdmin(admin.ModelAdmin):
     list_display = ('id','userr','uemail','ucomment')
 
-@admin.register(UploadImage)
-class UploadImageAdmin(admin.ModelAdmin):
+@admin.register(Complain)
+class ComplainAdmin(admin.ModelAdmin):
     list_display = ('id','okmail','addr','comment','num','cause_image')
 
     def cause_image(slef, obj):

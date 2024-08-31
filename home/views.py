@@ -4,8 +4,8 @@ from django.contrib import messages
 from django.views.generic import TemplateView
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate,login,logout
-from . models import Note
-from . models import UploadImage
+from . models import Feedback
+from . models import Complain
 
 
 # from . models import Records
@@ -88,7 +88,7 @@ def index(request):
         userr = request.POST.get("userr")
         uemail = request.POST.get("uemail")
         ucomment = request.POST.get("ucomment")
-        new_note = Note.objects.create(userr = userr,uemail = uemail,ucomment = ucomment)
+        new_note = Feedback.objects.create(userr = userr,uemail = uemail,ucomment = ucomment)
         new_note.save()
         return redirect("index")
     return render(request,"index.html")
@@ -100,7 +100,7 @@ def community(request):
         userr = request.POST.get("userr")
         uemail = request.POST.get("uemail")
         ucomment = request.POST.get("ucomment")
-        new_note = Note.objects.create(userr = userr,uemail = uemail,ucomment = ucomment)
+        new_note = Feedback.objects.create(userr = userr,uemail = uemail,ucomment = ucomment)
         new_note.save()
         return redirect("community")
     return render(request,"community.html")
@@ -112,7 +112,7 @@ def Event(request):
         userr = request.POST.get("userr")
         uemail = request.POST.get("uemail")
         ucomment = request.POST.get("ucomment")
-        new_note = Note.objects.create(userr = userr,uemail = uemail,ucomment = ucomment)
+        new_note = Feedback.objects.create(userr = userr,uemail = uemail,ucomment = ucomment)
         new_note.save()
         return redirect("Event")
     return render(request,"Event.html",{"user":request.user})
@@ -123,7 +123,7 @@ def Profile(request):
         userr = request.POST.get("userr")
         uemail = request.POST.get("uemail")
         ucomment = request.POST.get("ucomment")
-        new_note = Note.objects.create(userr = userr,uemail = uemail,ucomment = ucomment)
+        new_note = Feedback.objects.create(userr = userr,uemail = uemail,ucomment = ucomment)
         new_note.save()
         return redirect("Profile")
     # user = request.user
@@ -143,7 +143,7 @@ def Complain(request):
         comment = request.POST.get("comment")
         num = request.POST.get("num")
         image = request.POST.get("image")
-        new_feed = UploadImage.objects.create(okmail=okmail,addr=addr,comment=comment,num=num,image=image)
+        new_feed = Complain.objects.create(okmail=okmail,addr=addr,comment=comment,num=num,image=image)
         new_feed.save()
         return redirect("YourPost")
     return render(request,"complain.html",{"user":request.user})
@@ -154,7 +154,7 @@ def leaderboard(request):
         userr = request.POST.get("userr")
         uemail = request.POST.get("uemail")
         ucomment = request.POST.get("ucomment")
-        new_note = Note.objects.create(userr = userr,uemail = uemail,ucomment = ucomment)
+        new_note = Feedback.objects.create(userr = userr,uemail = uemail,ucomment = ucomment)
         new_note.save()
         return redirect("leaderboard")
     return render(request,"Leaderboard.html",{"user":request.user})
@@ -165,7 +165,7 @@ def Wallet(request):
         userr = request.POST.get("userr")
         uemail = request.POST.get("uemail")
         ucomment = request.POST.get("ucomment")
-        new_note = Note.objects.create(userr = userr,uemail = uemail,ucomment = ucomment)
+        new_note = Feedback.objects.create(userr = userr,uemail = uemail,ucomment = ucomment)
         new_note.save()
         return redirect("Wallet")
     return render(request,"Wallet.html",{"user":request.user})
@@ -176,7 +176,7 @@ def YourPost(request):
         userr = request.POST.get("userr")
         uemail = request.POST.get("uemail")
         ucomment = request.POST.get("ucomment")
-        new_note = Note.objects.create(userr = userr,uemail = uemail,ucomment = ucomment)
+        new_note = Feedback.objects.create(userr = userr,uemail = uemail,ucomment = ucomment)
         new_note.save()
         return redirect("YourPost")
     return render(request,"YourPost.html",{"user":request.user})
@@ -187,7 +187,7 @@ def CreatePost(request):
         userr = request.POST.get("userr")
         uemail = request.POST.get("uemail")
         ucomment = request.POST.get("ucomment")
-        new_note = Note.objects.create(userr = userr,uemail = uemail,ucomment = ucomment)
+        new_note = Feedback.objects.create(userr = userr,uemail = uemail,ucomment = ucomment)
         new_note.save()
         return redirect("CreatePost")
     return render(request,"CreatePost.html",{"user":request.user})
